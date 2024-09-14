@@ -258,6 +258,51 @@ const Sidebar = () => {
             <FaPercentage className="mb-1" />
             Tax List
           </NavLink>
+          <NavLink
+            to="/tax-lis"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            
+            Department
+          </NavLink>
+          <NavLink
+            to="/tax-li"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            
+            Lead Status
+          </NavLink>
+          <NavLink
+            to="/tax-l"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            
+            Service Status
+          </NavLink>
+          <NavLink
+            to="/tax"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            
+            Terms & Conditions
+          </NavLink>
+          <NavLink
+            to="/ta"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            
+           Order Checklist
+          </NavLink>
         </nav>
       )}
     </div>

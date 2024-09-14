@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { v4: uuidv4 } = require('uuid');  // To generate unique user codes
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   first_name: {
     type: String,
     required: true,
-    trim: true,
   },
   last_name: {
     type: String,
     required: true,
-    trim: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true, // Ensure email is unique
     lowercase: true,
+    trim: true,
   },
   password: {
     type: String,
@@ -25,7 +25,7 @@ const userSchema = new Schema({
   },
   branch_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Branch',  // Assuming you have a Branch model
+    ref: 'Branch',
     required: true,
   },
   role: {
@@ -33,23 +33,34 @@ const userSchema = new Schema({
     enum: ['user', 'admin'],
     default: 'user',
   },
-  passwordResetToken: String,
-  passwordResetExpires: Date,
+  login_id: {
+    type: String,
+    unique: true,
+    default: null,
+  },
+  user_code: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  email_id: {
+    type: String, // Either remove this field if not needed
+    unique: true, // Or ensure that it's properly assigned
+    sparse: true, // Allow multiple null values if this field can be empty
+  },
+  // Other fields...
 }, {
   timestamps: true,
 });
 
-// Password hashing middleware
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+// Middleware to auto-generate user_code if not provided
+userSchema.pre('save', function (next) {
+  if (!this.user_code) {
+    this.user_code = 'USER-' + Math.floor(100000 + Math.random() * 900000); // Generate a random user code
+  }
   next();
 });
 
-// Compare password for login
-userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
+
 
 module.exports = mongoose.model('User', userSchema);
