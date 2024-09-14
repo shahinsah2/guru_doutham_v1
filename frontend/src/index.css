@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.middleAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.formHeading {
+  font-family: Inter;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 65.35px;
+  text-align: left;
+}
+.formFooter p {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: center;
+}
+.formFooter span {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.94px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-control,
+.btn {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: #4da7fa; /* Adjust as needed */
+  border-color: #7ec1ff; /* Adjust as needed */
+  color: white; /* Text color */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-eye {
+  position: absolute;
+  right: 10px; /* Adjust position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #242425; /* Adjust color as needed */
+}
+
+.btn-eye:hover {
+  color: #0056b3; /* Darker color on hover */
+}
+
+.cardContainer {
+  width: 440px;
+  height: 476.98px;
+  top: 273.51px;
+  left: 1241px;
+  gap: 28px;
+  opacity: 0px;
+}
+
+.master_access_card{
+  width:318px;
+height: 82px;
+padding: 12px 18px 12px 18px;
+gap: 10px;
+border-radius: 12px 0px 0px 0px;
+/* opacity: 0px; */
+
+}
+
+input{
+  border: 1px solid gray;
+  border-radius: 5px;
+}
