@@ -49,6 +49,9 @@ import EditProfile from "./master/EditProfile";
 import FollowUpHistory from "./crm/FollowUpHistory";
 import FollowUpForm from "./crm/FollowUpForm";
 import ClientJourney from "./operations/ClientJourney";
+import RoleList from "./RoleList";
+import EditRoleForm from "./master/EditRoleForm";
+
 
 function App() {
   const location = useLocation();
@@ -166,6 +169,7 @@ function App() {
           <Route path="/address/city" element={<AddressCity />} />
           <Route path="/address/city/form" element={<AddAddressForm />} />
           <Route path="/roles/form" element={<AddRoleForm />} />
+          <Route path="/roles/form/:id" element={<EditRoleForm />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/branch/form" element={<AddBranchForm />} />
           <Route path="/contacts" element={<Contact />} />
@@ -176,6 +180,7 @@ function App() {
           <Route path="/rental" element={<RentalQuotation />} />
           <Route path="/profile-access" element={<ProfileAccessCard />} />
           <Route path="/profile-access/edit" element={<EditProfile />} />
+          <Route path="/test" element={<RoleList />} />
           <Route
             path="*"
             element={

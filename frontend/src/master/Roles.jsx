@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Toolbar from "../components/Toolbar";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
-import { users } from "../assets/dummyMasterData";
 import { Link } from "react-router-dom";
+import { fetchRoles } from "../redux/slices/roleSlice";
+import { deleteRole } from '../redux/slices/roleSlice'; // Import the deleteRole action
+import Spinner from "../assets/Spinner";
+
+
+
 
 function Roles() {
+  const dispatch = useDispatch();
+  const { roles, loading, error } = useSelector((state) => state.roles);
+  const handleDelete = (roleId) => {
+    dispatch(deleteRole(roleId));
+  };
+
+
+
+  useEffect(() => {
+    dispatch(fetchRoles());
+  }, [dispatch]);
+
+  if (loading) return <Spinner/>;
+  if (error) return <p>Error: {error}</p>;
   return (
     <>
       <Toolbar />
@@ -12,7 +32,7 @@ function Roles() {
         <table className="min-w-full bg-white border-collapse border border-gray-200">
           <thead>
             <tr>
-              {/* <th className="py-2 border border-gray-300">Name</th> */}
+           
               <th className="py-2  px-5 border border-gray-300">Role</th>
 
               <th className="py-2  px-5 border border-gray-300 w-1/3">
@@ -23,23 +43,19 @@ function Roles() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={index} className="border border-gray-200">
-                {/* <td className="py-2 px-4 border border-gray-300">
-                  <input type="checkbox" className="toggle-checkbox" />{" "}
-                  {user.name}
-                </td> */}
+            {roles.map((role) => (
+              <tr key={role._id} className="border border-gray-200">
+              
                 <td className="py-2 px-4 border border-gray-300">
                   <input type="checkbox" className="toggle-checkbox" />{" "}
-                  {user.role}
+                  {role.name}
                 </td>
 
                 <td className="py-2 px-4 border border-gray-300">
-                  {/* {user.password} */} Formulating overall strategy, managing
-                  people and establishing policies.
+                  {role.description}
                 </td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {user.status ? (
+                  {role.status === "active" ? (
                     <span className="bg-green-500 text-white px-2 py-1 rounded">
                       Active
                     </span>
@@ -50,10 +66,10 @@ function Roles() {
                   )}
                 </td>
                 <td className="py-2 px-5 border border-gray-300">
-                  <button className="px-2 py-1 bg-red-500 text-white rounded mr-2">
+                  <button className="px-2 py-1 bg-red-500 text-white rounded mr-2" onClick={()=>handleDelete(role._id)}>
                     <FaTrashAlt />
                   </button>
-                  <Link to="/roles/form">
+                  <Link to={`/roles/form/${role._id}`}>
                     {" "}
                     <button className="px-2 py-1 bg-blue-500 text-white rounded">
                       <FaEdit />

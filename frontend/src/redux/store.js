@@ -1,19 +1,25 @@
 // src/redux/store.js
-
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './authSlice';
-import { apiSlice } from './apiSlice'; // Import the API slice
+import roleReducer from './slices/roleSlice';
+import branchReducer from './slices/branchSlice';
+import userReducer from './slices/userSlice';
+import contactTypeReducer from './slices/contactTypeSlice';
+import taxReducer from './slices/taxSlice';
+import brandReducer from './slices/brandSlice';
+import productCategoryReducer from './slices/productCategorySlice';
+import stockLocationReducer from './slices/stockLocationSlice';
 
 export const store = configureStore({
   reducer: {
-    // Add the auth reducer
-    auth: authReducer,
-    // Add the apiSlice reducer to handle API calls
-    [apiSlice.reducerPath]: apiSlice.reducer,
+    roles: roleReducer,
+    branches: branchReducer,
+    users: userReducer,
+    contactTypes: contactTypeReducer,
+    taxes: taxReducer,
+    brands: brandReducer,
+    productCategories: productCategoryReducer,
+    stockLocations: stockLocationReducer,
   },
-  // Add middleware for RTK Query
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
-
+export default store;

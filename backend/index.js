@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const connectDB = require("./config/database");
 
 
@@ -23,7 +24,10 @@ const leadRoutes = require("./routes/leadRoutes");
 
 
 //  Middleware
-
+app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173' // Allow only this origin
+}));
 app.use(express.json());
 
 
