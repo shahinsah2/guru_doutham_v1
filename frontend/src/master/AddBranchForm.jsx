@@ -101,4 +101,27 @@ const AddBranchForm = () => {
   );
 };
 
+export default AddBranchForm; 
+
+ {/*
+// AddBranchForm.js
+import React from "react";
+import { useDispatch } from "react-redux";
+import { createBranch } from "../redux/slices/branchSlice";
+import { useNavigate } from "react-router-dom";
+import BranchForm from "./BranchForm";
+
+const AddBranchForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = (newBranch) => {
+    dispatch(createBranch(newBranch));
+    navigate("/branches");
+  };
+
+  return <BranchForm onSubmit={handleSubmit} />;
+};
+
 export default AddBranchForm;
+*/}

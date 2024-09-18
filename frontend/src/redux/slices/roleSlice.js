@@ -38,7 +38,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api'; // Your base API URL
+const BASE_URL = 'http://localhost:5000/api'; 
 
 // Fetch Roles
 export const fetchRoles = createAsyncThunk('roles/fetchRoles', async () => {

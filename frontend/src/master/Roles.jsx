@@ -4,7 +4,7 @@ import Toolbar from "../components/Toolbar";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { fetchRoles } from "../redux/slices/roleSlice";
-import { deleteRole } from '../redux/slices/roleSlice'; // Import the deleteRole action
+import { deleteRole } from '../redux/slices/roleSlice'; 
 import Spinner from "../assets/Spinner";
 
 
@@ -13,6 +13,7 @@ import Spinner from "../assets/Spinner";
 function Roles() {
   const dispatch = useDispatch();
   const { roles, loading, error } = useSelector((state) => state.roles);
+  
   const handleDelete = (roleId) => {
     dispatch(deleteRole(roleId));
   };

@@ -51,7 +51,13 @@ import FollowUpForm from "./crm/FollowUpForm";
 import ClientJourney from "./operations/ClientJourney";
 import RoleList from "./RoleList";
 import EditRoleForm from "./master/EditRoleForm";
-
+import EditBranchForm from "./master/EditBranchForm";
+import AddBrandForm from "./inventory/AddBrandForm";
+import EditBrandForm from "./inventory/EditBrandForm";
+import AddStockLocation from "./inventory/AddStockLocation";
+import EditStockLocation from "./inventory/EditStockLocation";
+import EditContactTypeForm from "./master/EditContactTypeForm";
+import ContactTypeForm from "./master/ContactTypeForm";
 
 function App() {
   const location = useLocation();
@@ -84,7 +90,10 @@ function App() {
           <Route path="/inventory/group" element={<Group />} />
           <Route path="/inventory/group/form" element={<AddGroupForm />} />
           <Route path="/inventory/brands" element={<Brand />} />
-          <Route
+          {/* <Route path="/brands" element={<Brands />} /> */}
+          <Route path="inventory/brands/form" element={<AddBrandForm />} />
+          <Route path="/brands/form/:id" element={<EditBrandForm />} />
+          {/* <Route
             path="/inventory/brands/form"
             element={
               <AddForm
@@ -94,7 +103,7 @@ function App() {
                 lnk="/inventory/brands"
               />
             }
-          />
+          /> */}
           <Route path="/inventory/product-categories" element={<Brand />} />
           <Route
             path="/inventory/product-categories/form"
@@ -113,8 +122,15 @@ function App() {
           />
           <Route
             path="/inventory/stock-locations/form"
-            element={<AddBranchForm />}
+            element={<AddStockLocation />}
           />
+          <Route
+            path="/inventory/stock-locations/:id"
+            element={<EditStockLocation />}
+          />
+          {/* <Route path="/stock-locations" element={<StockLocations />} /> */}
+  {/* <Route path="/stock-locations/add" element={<AddStockLocation />} /> */}
+  {/* <Route path="/stock-locations/edit/:id" element={<EditStockLocation />} /> */}
           {/* procurement   routes */}
           {/* <Route path="/procurement" element={<div>Procurement Page</div>} /> */}
           <Route
@@ -130,6 +146,7 @@ function App() {
             path="/procurement/suppliers/form"
             element={<AddSuppliersForm />}
           />
+          
           {/* CRM   routes */}
           <Route path="/crm/contacts" element={<Contacts />} />
           <Route path="/crm/contacts/form" element={<AddContactsForm />} />
@@ -172,11 +189,13 @@ function App() {
           <Route path="/roles/form/:id" element={<EditRoleForm />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/branch/form" element={<AddBranchForm />} />
+          <Route path="/branch/form/:id" element={<EditBranchForm />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="/contacts/form" element={<AddContactForm />} />
+          <Route path="/contacts/form" element={<ContactTypeForm />} /> 
+          <Route path="/contact/edit/id" element={<EditContactTypeForm />} />
           <Route path="/tax-list" element={<TaxList />} />
           <Route path="/tax-list/form" element={<AddTaxListForm />} />
-          {/* Add more routes as needed */}
+          {/* Add more routes as needed <AddContactForm />*/}
           <Route path="/rental" element={<RentalQuotation />} />
           <Route path="/profile-access" element={<ProfileAccessCard />} />
           <Route path="/profile-access/edit" element={<EditProfile />} />

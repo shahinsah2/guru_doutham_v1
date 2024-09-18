@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Toolbar from "../components/Toolbar";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { users } from "../assets/dummyMasterData";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchContactTypes,
+  deleteContactType,
+} from "../redux/slices/contactTypeSlice";
 
 function Contact() {
+  const dispatch = useDispatch();
+  const { contactTypes, loading, error } = useSelector(
+    (state) => state.contactTypes
+  );
+
+  console.log(contactTypes,"contact");
+
+  useEffect(() => {
+    dispatch(fetchContactTypes());
+  }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteContactType(id));
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
     <>
       <Toolbar />
@@ -18,36 +40,38 @@ function Contact() {
               </th>
 
               <th className="py-2  px-5 border border-gray-300 w-1/3">
-              Contacts Type
+                Contacts Type
               </th>
               <th className="py-2  px-5 border border-gray-300 w-1/3">
-              Description 
+                Description
               </th>
-              
+
               <th className="py-2  px-5 border border-gray-300 w-40">Status</th>
               <th className="py-2  px-5 border border-gray-300">Action</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={index} className="border border-gray-200">
+            {contactTypes.map((type) => (
+              <tr key={type._id} className="border border-gray-200">
                 {/* <td className="py-2 px-4 border border-gray-300">
-                  <input type="checkbox" className="toggle-checkbox" />{" "}
+                  <input type="checkbox" className="toggle-checkbox" />{" "} <td>{type.type_name}</td>
+//               <td>{type.description}</td>
+//               <td>{type.status}</td>
                   {user.name}
                 </td> */}
                 <td className="py-2 px-4 border border-gray-300">
                   <input type="checkbox" className="toggle-checkbox" />{" "}
-                  {index + 1}
+                  {type.contact_type_code}
                 </td>
 
                 <td className="py-2 px-4 border border-gray-300">
-                  {/* {user.password} */} IT Industry
+                  {/* {user.password} */} {type.contact_type}
                 </td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {/* {user.password} */} Lorem ipsum dolor sit amet, consectetuer adipisc rem ipsu...
+                  {/* {user.password} */}{type.description}
                 </td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {user.status ? (
+                  {type.status ? (
                     <span className="bg-green-500 text-white px-2 py-1 rounded">
                       Active
                     </span>
@@ -58,10 +82,10 @@ function Contact() {
                   )}
                 </td>
                 <td className="py-2 px-2 border border-gray-300">
-                  <button className="px-2 py-1 bg-red-500 text-white rounded mr-2">
+                  <button className="px-2 py-1 bg-red-500 text-white rounded mr-2" onClick={()=>handleDelete(type._id)}>
                     <FaTrashAlt />
                   </button>
-                  <Link to="/contacts/form">
+                  <Link to={`/contact/edit/${type._id}`}>
                     {" "}
                     <button className="px-2 py-1 bg-blue-500 text-white rounded">
                       <FaEdit />
@@ -94,3 +118,63 @@ function Contact() {
 }
 
 export default Contact;
+
+// src/components/ContactTypeList.js
+// import React, { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { fetchContactTypes, deleteContactType } from '../redux/slices/contactTypeSlice';
+// import { Link } from 'react-router-dom';
+// import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+
+// const Contact = () => {
+//   const dispatch = useDispatch();
+//   const { contactTypes, loading, error } = useSelector((state) => state.contactTypes);
+
+//   console.log(contactTypes);
+
+//   useEffect(() => {
+//     dispatch(fetchContactTypes());
+//   }, [dispatch]);
+
+//   const handleDelete = (id) => {
+//     dispatch(deleteContactType(id));
+//   };
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error: {error}</p>;
+
+//   return (
+//     <div>
+//       <Link to="/contact-types/add" className="btn btn-primary">Add Contact Type</Link>
+//       <table className="table">
+//         <thead>
+//           <tr>
+//             <th>Type</th>
+//             <th>Description</th>
+//             <th>Status</th>
+//             <th>Actions</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {contactTypes.map((type) => (
+//             <tr key={type._id}>
+//               <td>{type.type_name}</td>
+//               <td>{type.description}</td>
+//               <td>{type.status}</td>
+//               <td>
+//                 <Link to={`/contact-types/edit/${type._id}`}>
+//                   <FaEdit />
+//                 </Link>
+//                 <button onClick={() => handleDelete(type._id)}>
+//                   <FaTrashAlt />
+//                 </button>
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default Contact;
