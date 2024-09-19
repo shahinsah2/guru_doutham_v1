@@ -60,6 +60,10 @@ import EditContactTypeForm from "./master/EditContactTypeForm";
 import ContactTypeForm from "./master/ContactTypeForm";
 import AddTaxForm from "./master/AddTaxForm";
 import EditTaxForm from "./master/EditTaxForm";
+import ReusableTable from "./components/ReusableTable";
+import LeadStatus from "./leads/LeadStatus";
+import TermAndCond from "./T&C/TermAndCond";
+import CreateTermsAndCondition from "./T&C/CreateTermsAndCondition";
 
 function App() {
   const location = useLocation();
@@ -208,6 +212,14 @@ function App() {
           <Route path="/profile-access" element={<ProfileAccessCard />} />
           <Route path="/profile-access/edit" element={<EditProfile />} />
           <Route path="/test" element={<RoleList />} />
+
+          {/* T&C Routes */}
+          <Route path="/term" element={<TermAndCond />} />
+          <Route path="/term/form" element={<CreateTermsAndCondition />} />
+
+          {/* Lead Status Rautes */}
+
+          <Route path="/lead-status" element={<LeadStatus />} />
           <Route
             path="*"
             element={

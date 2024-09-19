@@ -271,7 +271,7 @@ const Sidebar = () => {
             Department
           </NavLink>
           <NavLink
-            to="/tax-li"
+            to="/lead-status"
             className={({ isActive }) =>
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
@@ -289,7 +289,7 @@ const Sidebar = () => {
             Service Status
           </NavLink>
           <NavLink
-            to="/tax"
+            to="/term"
             className={({ isActive }) =>
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
