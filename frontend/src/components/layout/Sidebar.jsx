@@ -16,12 +16,9 @@ import {
   FaCodeBranch,
   FaAddressBook,
   FaPercentage,
-<<<<<<< HEAD
   FaBuilding,
   FaRegListAlt,
   FaClipboardCheck,
-=======
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
 } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -270,11 +267,7 @@ const Sidebar = () => {
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
           >
-<<<<<<< HEAD
             <FaBuilding className="mb-1" />
-=======
-            
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
             Department
           </NavLink>
           <NavLink
@@ -283,11 +276,7 @@ const Sidebar = () => {
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
           >
-<<<<<<< HEAD
             <FaRegListAlt className="mb-1" />
-=======
-            
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
             Lead Status
           </NavLink>
           <NavLink
@@ -296,11 +285,7 @@ const Sidebar = () => {
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
           >
-<<<<<<< HEAD
             <FaRegListAlt className="mb-1" />
-=======
-            
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
             Service Status
           </NavLink>
           <NavLink
@@ -309,11 +294,7 @@ const Sidebar = () => {
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
           >
-<<<<<<< HEAD
             <FaFileAlt className="mb-1" />
-=======
-            
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
             Terms & Conditions
           </NavLink>
           <NavLink
@@ -322,13 +303,8 @@ const Sidebar = () => {
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
           >
-<<<<<<< HEAD
             <FaClipboardCheck className="mb-1" />
             Order Checklist
-=======
-            
-           Order Checklist
->>>>>>> b870aace61b44fa149e89572f19647c46a9ee2d6
           </NavLink>
         </nav>
       )}
