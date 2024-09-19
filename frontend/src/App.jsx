@@ -58,6 +58,8 @@ import AddStockLocation from "./inventory/AddStockLocation";
 import EditStockLocation from "./inventory/EditStockLocation";
 import EditContactTypeForm from "./master/EditContactTypeForm";
 import ContactTypeForm from "./master/ContactTypeForm";
+import AddTaxForm from "./master/AddTaxForm";
+import EditTaxForm from "./master/EditTaxForm";
 
 function App() {
   const location = useLocation();
@@ -129,8 +131,8 @@ function App() {
             element={<EditStockLocation />}
           />
           {/* <Route path="/stock-locations" element={<StockLocations />} /> */}
-  {/* <Route path="/stock-locations/add" element={<AddStockLocation />} /> */}
-  {/* <Route path="/stock-locations/edit/:id" element={<EditStockLocation />} /> */}
+          {/* <Route path="/stock-locations/add" element={<AddStockLocation />} /> */}
+          {/* <Route path="/stock-locations/edit/:id" element={<EditStockLocation />} /> */}
           {/* procurement   routes */}
           {/* <Route path="/procurement" element={<div>Procurement Page</div>} /> */}
           <Route
@@ -146,7 +148,6 @@ function App() {
             path="/procurement/suppliers/form"
             element={<AddSuppliersForm />}
           />
-          
           {/* CRM   routes */}
           <Route path="/crm/contacts" element={<Contacts />} />
           <Route path="/crm/contacts/form" element={<AddContactsForm />} />
@@ -191,11 +192,18 @@ function App() {
           <Route path="/branch/form" element={<AddBranchForm />} />
           <Route path="/branch/form/:id" element={<EditBranchForm />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="/contacts/form" element={<ContactTypeForm />} /> 
+          <Route path="/contacts/form" element={<ContactTypeForm />} />
           <Route path="/contact/edit/id" element={<EditContactTypeForm />} />
           <Route path="/tax-list" element={<TaxList />} />
           <Route path="/tax-list/form" element={<AddTaxListForm />} />
-          {/* Add more routes as needed <AddContactForm />*/}
+          <Route path="/add-tax" element={<AddTaxForm />} />
+          <Route path="/edit-tax/:id" element={<EditTaxForm />} />
+          {/* Add more routes as needed <AddContactForm />
+          
+             <Route path="/" element={<TaxList />} />
+        <Route path="/add-tax" element={<AddTaxForm />} />
+        <Route path="/edit-tax/:id" element={<EditTaxForm />} />
+          */}
           <Route path="/rental" element={<RentalQuotation />} />
           <Route path="/profile-access" element={<ProfileAccessCard />} />
           <Route path="/profile-access/edit" element={<EditProfile />} />
