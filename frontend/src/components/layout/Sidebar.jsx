@@ -262,7 +262,7 @@ const Sidebar = () => {
             Tax List
           </NavLink>
           <NavLink
-            to="/tax-lis"
+            to="/department"
             className={({ isActive }) =>
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
@@ -280,7 +280,7 @@ const Sidebar = () => {
             Lead Status
           </NavLink>
           <NavLink
-            to="/tax-l"
+            to="/service-status"
             className={({ isActive }) =>
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }
@@ -298,7 +298,7 @@ const Sidebar = () => {
             Terms & Conditions
           </NavLink>
           <NavLink
-            to="/ta"
+            to="/order-checklist"
             className={({ isActive }) =>
               isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
             }

@@ -1,11 +1,19 @@
 import React from 'react'
 import ReusableTable from '../components/ReusableTable';
 
-function LeadStatus() {
+function Department() {
+
+  const columns = [
+    { label: "Sl.no", key: "slNo" },
+    { label: "Department", key: "status" },
+    { label: "Description", key: "description" },
+    { label: "Active Status", key: "isActive" },
+    { label: "Action", key: "action" },
+  ];
     const tableData = [
         {
           id: 1,
-          status: "Cold",
+          status: "Service",
           description: "Lorem Ipsum is a dummy text used as a placeholder text in designs",
           isActive: true,
           onDelete: (id) => alert(`Delete ${id}`),
@@ -13,7 +21,7 @@ function LeadStatus() {
         },
         {
           id: 2,
-          status: "Warm",
+          status: "Marketing",
           description: "Lorem Ipsum is a dummy text used as a placeholder text in designs",
           isActive: true,
           onDelete: (id) => alert(`Delete ${id}`),
@@ -21,7 +29,7 @@ function LeadStatus() {
         },
         {
           id: 3,
-          status: "Interested",
+          status: "Technical Team",
           description: "Lorem Ipsum is a dummy text used as a placeholder text in designs",
           isActive: false,
           onDelete: (id) => alert(`Delete ${id}`),
@@ -32,10 +40,12 @@ function LeadStatus() {
     
       return (
         <div className="p-8 bg-gray-100 min-h-screen">
-          <h1 className="text-2xl font-bold mb-4">Lead Status Table</h1>
-          <ReusableTable data={tableData} />
+          <h1 className="text-2xl font-bold mb-4">Department Status Table</h1>
+          <ReusableTable columns={columns} data={tableData} />
         </div>
       );
 }
 
-export default LeadStatus
+
+
+export default Department

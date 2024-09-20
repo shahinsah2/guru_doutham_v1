@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateTermsAndCondition = () => {
   const [isActive, setIsActive] = useState(true);
+  const navigate = useNavigate()
 
   return (
     <div className="container mx-auto p-6">
@@ -109,7 +111,8 @@ const CreateTermsAndCondition = () => {
         <div className="col-span-3 flex justify-center">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 w-[428px]"
+            onClick={()=>navigate('/term')}
           >
             Save
           </button>

@@ -61,9 +61,13 @@ import ContactTypeForm from "./master/ContactTypeForm";
 import AddTaxForm from "./master/AddTaxForm";
 import EditTaxForm from "./master/EditTaxForm";
 import ReusableTable from "./components/ReusableTable";
-import LeadStatus from "./leads/LeadStatus";
-import TermAndCond from "./T&C/TermAndCond";
-import CreateTermsAndCondition from "./T&C/CreateTermsAndCondition";
+import LeadStatus from "./master/LeadStatus";
+
+import CreateTermsAndCondition from "./master/CreateTermsAndCondition";
+import OrderChecklist from "./master/OrderChecklist";
+import TermAndCondition from "./master/TermAndCondition";
+import ServiceStatus from "./master/ServiceStatus";
+import Department from "./master/Department";
 
 function App() {
   const location = useLocation();
@@ -202,6 +206,11 @@ function App() {
           <Route path="/tax-list/form" element={<AddTaxListForm />} />
           <Route path="/add-tax" element={<AddTaxForm />} />
           <Route path="/edit-tax/:id" element={<EditTaxForm />} />
+          <Route path="/lead-status" element={<LeadStatus />} />
+          <Route path="/order-checklist" element={<OrderChecklist />} />
+          <Route path="/service-status" element={<ServiceStatus />} />
+          <Route path="/term" element={<TermAndCondition />} />
+          <Route path="/department" element={<Department />} />
           {/* Add more routes as needed <AddContactForm />
           
              <Route path="/" element={<TaxList />} />
@@ -214,12 +223,12 @@ function App() {
           <Route path="/test" element={<RoleList />} />
 
           {/* T&C Routes */}
-          <Route path="/term" element={<TermAndCond />} />
+          
           <Route path="/term/form" element={<CreateTermsAndCondition />} />
 
           {/* Lead Status Rautes */}
 
-          <Route path="/lead-status" element={<LeadStatus />} />
+          
           <Route
             path="*"
             element={
