@@ -35,37 +35,47 @@
 
 // export default roleSlice.reducer;
 
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import axiosInstance from "../../services/axios";
 
-const BASE_URL = 'http://localhost:5000/api'; 
+// const BASE_URL = 'http://localhost:5000/api';
 
 // Fetch Roles
-export const fetchRoles = createAsyncThunk('roles/fetchRoles', async () => {
-  const response = await axios.get(`${BASE_URL}/roles`);
+export const fetchRoles = createAsyncThunk("roles/fetchRoles", async () => {
+  const response = await axiosInstance.get(`/roles`);
   return response.data;
 });
 
 // Create Role
-export const createRole = createAsyncThunk('roles/createRole', async (newRole, thunkAPI) => {
-  const response = await axios.post(`${BASE_URL}/roles`, newRole);
-  return response.data;
-});
+export const createRole = createAsyncThunk(
+  "roles/createRole",
+  async (newRole, thunkAPI) => {
+    const response = await axiosInstance.post(`/roles`, newRole);
+    return response.data;
+  }
+);
 
 // Update Role
-export const updateRole = createAsyncThunk('roles/updateRole', async ({ roleId, updatedData }, thunkAPI) => {
-  const response = await axios.put(`${BASE_URL}/roles/${roleId}`, updatedData);
-  return response.data;
-});
+export const updateRole = createAsyncThunk(
+  "roles/updateRole",
+  async ({ roleId, updatedData }, thunkAPI) => {
+    const response = await axiosInstance.put(`/roles/${roleId}`, updatedData);
+    return response.data;
+  }
+);
 
 // Delete Role
-export const deleteRole = createAsyncThunk('roles/deleteRole', async (roleId, thunkAPI) => {
-  await axios.delete(`${BASE_URL}/roles/${roleId}`);
-  return roleId;
-});
+export const deleteRole = createAsyncThunk(
+  "roles/deleteRole",
+  async (roleId, thunkAPI) => {
+    await axiosInstance.delete(`/roles/${roleId}`);
+    return roleId;
+  }
+);
 
 const roleSlice = createSlice({
-  name: 'roles',
+  name: "roles",
   initialState: {
     roles: [],
     loading: false,
@@ -93,7 +103,9 @@ const roleSlice = createSlice({
       // Update role
       .addCase(updateRole.fulfilled, (state, action) => {
         const updatedRole = action.payload;
-        const index = state.roles.findIndex((role) => role._id === updatedRole._id);
+        const index = state.roles.findIndex(
+          (role) => role._id === updatedRole._id
+        );
         if (index !== -1) {
           state.roles[index] = updatedRole;
         }
@@ -106,4 +118,3 @@ const roleSlice = createSlice({
 });
 
 export default roleSlice.reducer;
-
