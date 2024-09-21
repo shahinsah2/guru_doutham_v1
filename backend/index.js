@@ -21,9 +21,10 @@ const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 
 // Middleware
-app.use(cors());
-// Uncomment the following line to allow only a specific origin
-// app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: true, // Allow all origins
+  credentials: true, // Allow credentials if you are using cookies
+}));
 
 app.use(express.json());
 
