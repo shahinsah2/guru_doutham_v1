@@ -25,7 +25,7 @@ const leadRoutes = require("./routes/leadRoutes");
 
 //  Middleware
 app.use(cors());
-app.use(cors());
+// app.use(cors());
 // {
 //   origin: 'http://localhost:5173' // Allow only this origin
 // }
