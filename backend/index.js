@@ -1,12 +1,10 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const connectDB = require("./config/database");
-
-
 require("dotenv").config();
 
 // DataBase connection
-connectDB()
+connectDB();
 
 const app = express();
 
@@ -22,15 +20,18 @@ const stockLocationRoutes = require("./routes/stockLocationRoutes");
 const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 
-
-//  Middleware
+// Middleware
 app.use(cors());
-// app.use(cors());
-// {
-//   origin: 'http://localhost:5173' // Allow only this origin
-// }
+// Uncomment the following line to allow only a specific origin
+// app.use(cors({ origin: 'http://localhost:5173' }));
+
 app.use(express.json());
 
+// Set Referrer Policy
+app.use((req, res, next) => {
+    res.setHeader("Referrer-Policy", "no-referrer"); // Change to your desired policy
+    next();
+});
 
 // Register routes
 app.use("/api/roles", roleRoutes);
@@ -44,11 +45,8 @@ app.use("/api/stock-locations", stockLocationRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/leads", leadRoutes);
 
-
-
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
