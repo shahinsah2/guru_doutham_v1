@@ -1,31 +1,32 @@
 // src/redux/slices/brandSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/brands';
+import axiosInstance from '../../services/axios';
+
+
 
 // Fetch all brands
 export const fetchBrands = createAsyncThunk('brands/fetchBrands', async () => {
-  const response = await axios.get(`${BASE_URL}`);
+  const response = await axiosInstance.get(`/brands`);
   return response.data;
 });
 
 // Create a new brand
 export const createBrand = createAsyncThunk('brands/createBrand', async (brand) => {
-  const response = await axios.post(`${BASE_URL}`, brand);
+  const response = await axiosInstance.post(`/brands`, brand);
   return response.data;
 });
 
 // Update a brand
 export const updateBrand = createAsyncThunk('brands/updateBrand', async (brand) => {
   const { _id, ...data } = brand;
-  const response = await axios.put(`${BASE_URL}/${_id}`, data);
+  const response = await axiosInstance.put(`/brands/${_id}`, data);
   return response.data;
 });
 
 // Delete a brand
 export const deleteBrand = createAsyncThunk('brands/deleteBrand', async (brandId) => {
-  await axios.delete(`${BASE_URL}/${brandId}`);
+  await axiosInstance.delete(`/brands/${brandId}`);
   return brandId;
 });
 

@@ -36,10 +36,10 @@
 // export default roleSlice.reducer;
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+
 import axiosInstance from "../../services/axios";
 
-// const BASE_URL = 'http://localhost:5000/api';
+
 
 // Fetch Roles
 export const fetchRoles = createAsyncThunk("roles/fetchRoles", async () => {

@@ -6,7 +6,7 @@
 // export const fetchBranches = createAsyncThunk(
 //   "branches/fetchBranches",
 //   async () => {
-//     const response = await axios.get("/api/branches");
+//     const response = await axiosInstance.get("/api/branches");
 //     return response.data;
 //   }
 // );
@@ -40,31 +40,32 @@
 
 // src/redux/slices/branchSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axiosInstance from '../../services/axios';
 
-const BASE_URL = 'http://localhost:5000/api/branches'; 
+
+
 
 // Fetch branches
 export const fetchBranches = createAsyncThunk('branches/fetchBranches', async () => {
-  const response = await axios.get(BASE_URL);
+  const response = await axiosInstance.get("/branches");
   return response.data;
 });
 
 // Create branch
 export const createBranch = createAsyncThunk('branches/createBranch', async (branchData) => {
-  const response = await axios.post(BASE_URL, branchData);
+  const response = await axiosInstance.post(`/branches`, branchData);
   return response.data;
 });
 
 // Update branch
 export const updateBranch = createAsyncThunk('branches/updateBranch', async ({ id, branchData }) => {
-  const response = await axios.put(`${BASE_URL}/${id}`, branchData);
+  const response = await axiosInstance.put(`/branches/${id}`, branchData);
   return response.data;
 });
 
 // Delete branch
 export const deleteBranch = createAsyncThunk('branches/deleteBranch', async (branchId) => {
-  await axios.delete(`${BASE_URL}/${branchId}`);
+  await axiosInstance.delete(`/branches/${branchId}`);
   return branchId;
 });
 
