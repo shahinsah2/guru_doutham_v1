@@ -21,6 +21,7 @@ const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 const productRoutes = require('./routes/productRoutes');
 // const categoryRoutes = require('./routes/CategoryRoutes');
+const MasterRoutes = require('./routes/MasterRoutes')
 
 // Middleware
 app.use(cors({
@@ -49,6 +50,7 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/leads", leadRoutes);
 app.use('/api/products', productRoutes)
 // app.use('/api/category', categoryRoutes)
+app.use('/api/master', MasterRoutes)
 
 // Start the server
 const PORT = process.env.PORT || 5000;
