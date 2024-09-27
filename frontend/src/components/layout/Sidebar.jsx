@@ -206,7 +206,7 @@ const Sidebar = () => {
           </NavLink>
         </nav>
       ) : (
-        <nav className="mt-10">
+        <nav>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -232,7 +232,7 @@ const Sidebar = () => {
             }
           >
             <FaMapMarkerAlt className="mb-1" />
-            Address
+            Location
           </NavLink>
           <NavLink
             to="/branches"
@@ -250,7 +250,7 @@ const Sidebar = () => {
             }
           >
             <FaAddressBook className="mb-1" />
-            Contacts Type
+            Lead Checklist
           </NavLink>
           <NavLink
             to="/tax-list"
@@ -304,7 +304,16 @@ const Sidebar = () => {
             }
           >
             <FaClipboardCheck className="mb-1" />
-            Order Checklist
+            Order List
+          </NavLink>
+          <NavLink
+            to="/order-check"
+            className={({ isActive }) =>
+              isActive ? `${linkClasses} ${activeLinkClasses}` : linkClasses
+            }
+          >
+            <FaClipboardCheck className="mb-1" />
+            Service Priority Level
           </NavLink>
         </nav>
       )}
