@@ -1,4 +1,4 @@
-const Brand = require('../models/Brand');
+const Brand = require('../../models/inventory/Brand');
 
 // Get all brands
 exports.getBrands = async (req, res) => {
@@ -36,7 +36,7 @@ exports.createBrand = async (req, res) => {
     const newBrand = await brand.save();
     res.status(201).json(newBrand);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(500).json({ message: err.message });
   }
 };
 

@@ -117,7 +117,7 @@ const Dashboard = () => {
         <div className="bg-white shadow-md rounded-xl p-6">
           <h2 className="font-semibold text-xl mb-4">Rent Status</h2>
           <Doughnut data={rentStatusData} />
-          <ul className="mt-4 text-sm space-y-2">
+          <ul className="mt-4 text space-y-2">
             {["On Rent", "Not Rented"].map((item, index) => (
               <li key={index} className="flex justify-between">
                 <span className="flex items-center">
@@ -140,7 +140,7 @@ const Dashboard = () => {
         <div className="bg-white shadow-md rounded-xl p-6">
           <h2 className="font-semibold text-xl mb-4">Product Status</h2>
           <Doughnut data={productStatusData} />
-          <ul className="mt-4 text-sm space-y-2">
+          <ul className="mt-4 text space-y-2">
             {["Rental", "Sale", "Service", "Pending Stocks"].map(
               (item, index) => (
                 <li key={index} className="flex justify-between">

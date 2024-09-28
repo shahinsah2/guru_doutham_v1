@@ -14,14 +14,15 @@ const branchRoutes = require("./routes/branchRoutes");
 const userRoutes = require("./routes/userRoutes");
 const contactTypeRoutes = require("./routes/contactTypeRoutes");
 const taxRoutes = require("./routes/taxRoutes");
-const brandRoutes = require("./routes/brandRoutes");
+const brandRoutes = require("./routes/inventory/brandRoutes");
 const productCategoryRoutes = require("./routes/productCategoryRoutes");
 const stockLocationRoutes = require("./routes/stockLocationRoutes");
 const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
-const productRoutes = require('./routes/productRoutes');
-// const categoryRoutes = require('./routes/CategoryRoutes');
+const productRoutes = require('./routes/inventory/productRoutes');   
+// const categoryRoutes = require('./routes/inventory/CategoryRoutes');
 const MasterRoutes = require('./routes/MasterRoutes')
+const servicePriorityRoutes = require('./routes/servicePriorityRoutes');
 
 // Middleware
 app.use(cors({
@@ -51,6 +52,7 @@ app.use("/api/leads", leadRoutes);
 app.use('/api/products', productRoutes)
 // app.use('/api/category', categoryRoutes)
 app.use('/api/master', MasterRoutes)
+app.use('/api/service-priorities', servicePriorityRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;
