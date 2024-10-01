@@ -29,6 +29,9 @@ const serviceStatusRoutes = require("./routes/serviceStatusRoutes");
 const leadChecklistRoutes = require("./routes/leadChecklistRoutes");
 const termsRoutes = require("./routes/termsRoutes");
 const locationRoutes = require("./routes/locationRoutes")
+const purchaseRequestRoutes = require('./routes/procurement/purchaseRequestRoutes');
+const poQuotationRoutes = require('./routes/procurement/poQuotationRoutes');
+const purchaseOrderRoutes = require('./routes/procurement/purchaseOrderRoutes');
 
 // Middleware
 app.use(
@@ -67,6 +70,9 @@ app.use("/api/service-status", serviceStatusRoutes);
 app.use("/api/lead-checklist", leadChecklistRoutes);
 app.use("/api/terms-and-conditions", termsRoutes);
 app.use("/api/location", locationRoutes);
+app.use('/api/purchase-requests', purchaseRequestRoutes);
+app.use('/api/po-quotations', poQuotationRoutes);
+app.use('/api/purchase-orders', purchaseOrderRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

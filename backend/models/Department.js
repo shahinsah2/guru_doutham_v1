@@ -14,7 +14,7 @@ const departmentSchema = new mongoose.Schema(
     },
     status: {
       type: Boolean,
-      default: true, // Active by default
+      default: true, 
     },
   },
   {
