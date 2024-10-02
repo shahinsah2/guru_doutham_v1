@@ -32,6 +32,9 @@ const locationRoutes = require("./routes/locationRoutes")
 const purchaseRequestRoutes = require('./routes/procurement/purchaseRequestRoutes');
 const poQuotationRoutes = require('./routes/procurement/poQuotationRoutes');
 const purchaseOrderRoutes = require('./routes/procurement/purchaseOrderRoutes');
+const productLibRoutes = require('./routes/product_library/productRoutes');
+const clientSaleRoutes = require('./routes/client/clientSaleRoutes');
+const clientRentRoutes = require('./routes/client/clientRentRoutes');
 
 // Middleware
 app.use(
@@ -73,6 +76,10 @@ app.use("/api/location", locationRoutes);
 app.use('/api/purchase-requests', purchaseRequestRoutes);
 app.use('/api/po-quotations', poQuotationRoutes);
 app.use('/api/purchase-orders', purchaseOrderRoutes);
+app.use('/api', productLibRoutes);
+app.use('/api/client-sales', clientSaleRoutes);
+app.use('/api/client-rents', clientRentRoutes);
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
