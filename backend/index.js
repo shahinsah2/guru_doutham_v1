@@ -16,11 +16,11 @@ const contactTypeRoutes = require("./routes/contactTypeRoutes");
 const taxRoutes = require("./routes/taxRoutes");
 const brandRoutes = require("./routes/inventory/brandRoutes");
 
-const stockLocationRoutes = require("./routes/stockLocationRoutes");
+// const stockLocationRoutes = require("./routes/stockLocationRoutes");
 const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 const productRoutes = require("./routes/inventory/productRoutes");
-// const categoryRoutes = require('./routes/inventory/CategoryRoutes');
+// const categoryRoutes = require('./routes/inventory/CategoryRoutes');   details
 const MasterRoutes = require("./routes/MasterRoutes");
 const servicePriorityRoutes = require("./routes/servicePriorityRoutes");
 const departmentRoutes = require("./routes/departmentRoutes");
@@ -41,6 +41,7 @@ const itemVariantRoutes = require('./routes/product_library/itemVariantRoutes');
 const assetRoutes = require('./routes/product_library/assetRoutes');
 const roleRoutes = require("./routes/roleRoutes");
 const productCategoryRoutes = require("./routes/product_library/productCategoryRoutes");
+const stockLocationRoutes = require("./routes/product_library/stockLocationRoutes");
 
 // Middleware
 app.use(
@@ -66,7 +67,7 @@ app.use("/api/contact-types", contactTypeRoutes);
 app.use("/api/taxes", taxRoutes);
 app.use("/api/brands", brandRoutes);
 app.use("/api/product-categories", productCategoryRoutes);
-app.use("/api/stock-locations", stockLocationRoutes);
+// app.use("/api/stock-locations", stockLocationRoutes);   it's details
 app.use("/api/customers", customerRoutes);
 app.use("/api/leads", leadRoutes);
 app.use("/api/products", productRoutes);
@@ -89,6 +90,7 @@ app.use('/api/item-specifications', itemSpecificationRoutes);
 app.use('/api/grades', gradeRoutes);
 app.use('/api/item-variants', itemVariantRoutes);
 app.use('/api/assets', assetRoutes);
+app.use("/api/stock-locations", stockLocationRoutes);
 
 
 // Start the server
