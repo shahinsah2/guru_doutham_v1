@@ -1,4 +1,4 @@
-const ProductCategory = require('../models/ProductCategory');
+const ProductCategory = require("../../models/product_library/ProductCategory");
 
 // Get all product categories
 exports.getProductCategories = async (req, res) => {
@@ -14,7 +14,8 @@ exports.getProductCategories = async (req, res) => {
 exports.getProductCategoryById = async (req, res) => {
   try {
     const productCategory = await ProductCategory.findById(req.params.id);
-    if (!productCategory) return res.status(404).json({ message: 'Product category not found' });
+    if (!productCategory)
+      return res.status(404).json({ message: "Product category not found" });
     res.json(productCategory);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -29,7 +30,7 @@ exports.createProductCategory = async (req, res) => {
     category_code,
     category_name,
     description,
-    status
+    status,
   });
 
   try {
@@ -50,7 +51,8 @@ exports.updateProductCategory = async (req, res) => {
       { category_code, category_name, description, status },
       { new: true, runValidators: true }
     );
-    if (!updatedProductCategory) return res.status(404).json({ message: 'Product category not found' });
+    if (!updatedProductCategory)
+      return res.status(404).json({ message: "Product category not found" });
     res.json(updatedProductCategory);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -60,9 +62,12 @@ exports.updateProductCategory = async (req, res) => {
 // Delete product category by ID
 exports.deleteProductCategory = async (req, res) => {
   try {
-    const productCategory = await ProductCategory.findByIdAndDelete(req.params.id);
-    if (!productCategory) return res.status(404).json({ message: 'Product category not found' });
-    res.json({ message: 'Product category deleted' });
+    const productCategory = await ProductCategory.findByIdAndDelete(
+      req.params.id
+    );
+    if (!productCategory)
+      return res.status(404).json({ message: "Product category not found" });
+    res.json({ message: "Product category deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

@@ -9,13 +9,13 @@ connectDB();
 const app = express();
 
 // Import routes
-const roleRoutes = require("./routes/roleRoutes");
+
 const branchRoutes = require("./routes/branchRoutes");
 const userRoutes = require("./routes/userRoutes");
 const contactTypeRoutes = require("./routes/contactTypeRoutes");
 const taxRoutes = require("./routes/taxRoutes");
 const brandRoutes = require("./routes/inventory/brandRoutes");
-const productCategoryRoutes = require("./routes/productCategoryRoutes");
+
 const stockLocationRoutes = require("./routes/stockLocationRoutes");
 const customerRoutes = require("./routes/customerRoutes");
 const leadRoutes = require("./routes/leadRoutes");
@@ -35,6 +35,12 @@ const purchaseOrderRoutes = require('./routes/procurement/purchaseOrderRoutes');
 const productLibRoutes = require('./routes/product_library/productRoutes');
 const clientSaleRoutes = require('./routes/client/clientSaleRoutes');
 const clientRentRoutes = require('./routes/client/clientRentRoutes');
+const itemSpecificationRoutes = require('./routes/product_library/itemSpecificationRoutes');
+const gradeRoutes = require('./routes/product_library/gradeRoutes');
+const itemVariantRoutes = require('./routes/product_library/itemVariantRoutes');
+const assetRoutes = require('./routes/product_library/assetRoutes');
+const roleRoutes = require("./routes/roleRoutes");
+const productCategoryRoutes = require("./routes/product_library/productCategoryRoutes");
 
 // Middleware
 app.use(
@@ -79,6 +85,10 @@ app.use('/api/purchase-orders', purchaseOrderRoutes);
 app.use('/api', productLibRoutes);
 app.use('/api/client-sales', clientSaleRoutes);
 app.use('/api/client-rents', clientRentRoutes);
+app.use('/api/item-specifications', itemSpecificationRoutes);
+app.use('/api/grades', gradeRoutes);
+app.use('/api/item-variants', itemVariantRoutes);
+app.use('/api/assets', assetRoutes);
 
 
 // Start the server
