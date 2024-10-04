@@ -32,6 +32,7 @@ const locationRoutes = require("./routes/locationRoutes")
 const purchaseRequestRoutes = require('./routes/procurement/purchaseRequestRoutes');
 const poQuotationRoutes = require('./routes/procurement/poQuotationRoutes');
 const purchaseOrderRoutes = require('./routes/procurement/purchaseOrderRoutes');
+const supplierRoutes = require('./routes/procurement/supplierRoutes');
 const productLibRoutes = require('./routes/product_library/productRoutes');
 const clientSaleRoutes = require('./routes/client/clientSaleRoutes');
 const clientRentRoutes = require('./routes/client/clientRentRoutes');
@@ -42,6 +43,9 @@ const assetRoutes = require('./routes/product_library/assetRoutes');
 const roleRoutes = require("./routes/roleRoutes");
 const productCategoryRoutes = require("./routes/product_library/productCategoryRoutes");
 const stockLocationRoutes = require("./routes/product_library/stockLocationRoutes");
+const userPerformanceRoutes = require('./routes/user_performance/userPerformanceRoutes');
+const contactRoutes = require('./routes/crm/contactRoutes');
+
 
 // Middleware
 app.use(
@@ -83,6 +87,7 @@ app.use("/api/location", locationRoutes);
 app.use('/api/purchase-requests', purchaseRequestRoutes);
 app.use('/api/po-quotations', poQuotationRoutes);
 app.use('/api/purchase-orders', purchaseOrderRoutes);
+app.use('/api/suppliers', supplierRoutes);
 app.use('/api', productLibRoutes);
 app.use('/api/client-sales', clientSaleRoutes);
 app.use('/api/client-rents', clientRentRoutes);
@@ -91,6 +96,9 @@ app.use('/api/grades', gradeRoutes);
 app.use('/api/item-variants', itemVariantRoutes);
 app.use('/api/assets', assetRoutes);
 app.use("/api/stock-locations", stockLocationRoutes);
+app.use('/api/user-performance', userPerformanceRoutes);
+app.use('/api/contacts', contactRoutes);
+
 
 
 // Start the server
