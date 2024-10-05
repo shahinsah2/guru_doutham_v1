@@ -45,6 +45,9 @@ const productCategoryRoutes = require("./routes/product_library/productCategoryR
 const stockLocationRoutes = require("./routes/product_library/stockLocationRoutes");
 const userPerformanceRoutes = require('./routes/user_performance/userPerformanceRoutes');
 const contactRoutes = require('./routes/crm/contactRoutes');
+const deliveryChallanRoutes = require('./routes/operations/deliveryChallanRoutes');
+const grnRoutes = require("./routes/operations/grn.routes");  //dub
+const serviceRoutes = require("./routes/operations/serviceRoutes");
 
 
 // Middleware
@@ -98,6 +101,9 @@ app.use('/api/assets', assetRoutes);
 app.use("/api/stock-locations", stockLocationRoutes);
 app.use('/api/user-performance', userPerformanceRoutes);
 app.use('/api/contacts', contactRoutes);
+app.use('/api/delivery-challans', deliveryChallanRoutes);
+app.use("/api/grn", grnRoutes);
+app.use("/api/services", serviceRoutes);
 
 
 
