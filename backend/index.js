@@ -48,6 +48,7 @@ const contactRoutes = require('./routes/crm/contactRoutes');
 const deliveryChallanRoutes = require('./routes/operations/deliveryChallanRoutes');
 const grnRoutes = require("./routes/operations/grn.routes");  //dub
 const serviceRoutes = require("./routes/operations/serviceRoutes");
+const clientJourneyRoutes = require('./routes/operations/clientJourneyRoutes');
 
 
 // Middleware
@@ -104,6 +105,7 @@ app.use('/api/contacts', contactRoutes);
 app.use('/api/delivery-challans', deliveryChallanRoutes);
 app.use("/api/grn", grnRoutes);
 app.use("/api/services", serviceRoutes);
+app.use('/api/clientJourney', clientJourneyRoutes);
 
 
 
